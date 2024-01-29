@@ -32,12 +32,17 @@ public class Binary {
 		}
 		// beg has the index of the first non zero digit in the number
 		this.number = number.substring(beg); // exclude the trailing zeros if any
-		// uncomment the following code
 
-		if (this.number == "") { // replace empty strings with a single zero
-			this.number = "0";
+		if (this.number.isEmpty()) { // replace empty strings with a single zero
+			if(number == ""){
+				this.number="0";
+				return;
+			}
+			for(int j = 0; j < number.length(); j++){
+				this.number = this.number + "0";
+			}
+			
 		}
-
 	}
 
 	/**
@@ -84,4 +89,60 @@ public class Binary {
 		return result;
 
 	}
+
+	public static Binary or(Binary num1, Binary num2){
+		// the index of the first digit of each number
+		int ind1 = num1.number.length() - 1;
+		int ind2 = num2.number.length() - 1;
+		String num3 = ""; // the binary value of the sum
+		while (ind1 >= 0 || ind2 >= 0){ // loop until all digits are processed
+            int digit1 = (ind1 >= 0) ? (num1.number.charAt(ind1) - '0') : 0;
+            int digit2 = (ind2 >= 0) ? (num2.number.charAt(ind2) - '0') : 0;
+            int result = digit1 | digit2;
+            num3 = result + num3;
+            ind1--;
+            ind2--;			
+		}
+		Binary result = new Binary(num3); // create a binary object with the calculated value.
+		return result;		
+
+	}
+
+	public static Binary and(Binary num1, Binary num2){
+		// the index of the first digit of each number
+		int ind1 = num1.number.length() - 1;
+		int ind2 = num2.number.length() - 1;
+		String num3 = ""; // the binary value of the sum
+		while (ind1 >= 0 || ind2 >= 0){ // loop until all digits are processed
+            int digit1 = (ind1 >= 0) ? (num1.number.charAt(ind1) - '0') : 0;
+            int digit2 = (ind2 >= 0) ? (num2.number.charAt(ind2) - '0') : 0;
+            int result = digit1 & digit2;
+            num3 = result + num3;
+            ind1--;
+            ind2--;		
+		}
+		Binary result = new Binary(num3); // create a binary object with the calculated value.
+		return result;		
+	}
+
+	public static Binary multiplyBinary(Binary num1, Binary num2){
+		// Initialize the result to 0
+		Binary result = new Binary("0");
+
+		// Iterate through each digit of num2
+		for (int i = num2.number.length() - 1; i >= 0; i--) {
+			int digit = num2.number.charAt(i) - '0';
+
+			// If the current digit is 1, add the shifted num1 to the result
+			if (digit == 1) {
+				String padding = "";
+				for (int j = 0; j < num2.number.length() - 1 - i; j++) {
+					padding += "0";
+				}
+				result = add(result, new Binary(num1.number + padding));
+			}
+		}
+
+		return result;
+		}
 }
