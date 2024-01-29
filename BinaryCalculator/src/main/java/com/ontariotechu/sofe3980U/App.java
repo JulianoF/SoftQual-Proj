@@ -31,12 +31,6 @@ public class App
 		System.out.println( "And'ing results in: "+andd.getValue());
 		Binary multi = Binary.multiplyBinary(binary1,binary2);
 		System.out.println( "Multiplying results in: "+multi.getValue());
-		Binary test = new Binary("000000");
-		System.out.println("The value is: " + test.getValue());
 
-		Binary binary11=new Binary("100100100001010011100");
-		Binary binary22=new Binary("001010011010101010010");
-		Binary binary3=Binary.and(binary11,binary22);
-		System.out.println("The m,ulti value is: " + binary3.getValue());
     }
 }

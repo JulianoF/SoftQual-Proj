@@ -153,7 +153,7 @@ public class BinaryTest
     }
 
 	/**
-     * Test 
+     * Test the And function with all 1's
      */    
     @Test
     public void and1(){
@@ -164,7 +164,7 @@ public class BinaryTest
     }
 
     /**
-     * Test 
+     * Test the And function with an alternating pattern
      */
     @Test
     public void and2(){
@@ -186,7 +186,7 @@ public class BinaryTest
     }
 
     /**
-     * Test 
+     * Test multiply function with all 1's and one 0
      */
     @Test
     public void multi1(){
@@ -197,7 +197,7 @@ public class BinaryTest
     }
  
 	/**
-     * Test 
+     * Test the Multiply function with an alternating pattern
      */    
     @Test
     public void multi2(){
@@ -208,7 +208,7 @@ public class BinaryTest
     }
 
 	/**
-     * Test
+     * Test multiply function with long numbers
      */    
     @Test
     public void multi3(){

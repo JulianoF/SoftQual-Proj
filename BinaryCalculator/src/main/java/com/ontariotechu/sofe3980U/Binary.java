@@ -89,7 +89,13 @@ public class Binary {
 		return result;
 
 	}
-
+	/**
+	 * Or'ing two binary variables. 
+	 *
+	 * @param num1 The first object to Or'd
+	 * @param num2 The second object to be Or'd
+	 * @return A binary variable with a value of <i>num1 or num2</i>.
+	 */
 	public static Binary or(Binary num1, Binary num2){
 		// the index of the first digit of each number
 		int ind1 = num1.number.length() - 1;
@@ -108,6 +114,13 @@ public class Binary {
 
 	}
 
+	/**
+	 * And'ing two binary variables. 
+	 *
+	 * @param num1 The first object to And'd
+	 * @param num2 The second object to be And'd
+	 * @return A binary variable with a value of <i>num1 and num2</i>.
+	 */	
 	public static Binary and(Binary num1, Binary num2){
 		// the index of the first digit of each number
 		int ind1 = num1.number.length() - 1;
@@ -125,6 +138,13 @@ public class Binary {
 		return result;		
 	}
 
+	/**
+	 * Mutliplying two binary variables. 
+	 *
+	 * @param num1 The first multiplier object
+	 * @param num2 The second multiplicand object
+	 * @return A binary variable with a value of <i>num1 * num2</i>.
+	 */
 	public static Binary multiplyBinary(Binary num1, Binary num2){
 		// Initialize the result to 0
 		Binary result = new Binary("0");
@@ -142,7 +162,6 @@ public class Binary {
 				result = add(result, new Binary(num1.number + padding));
 			}
 		}
-
 		return result;
 		}
 }
